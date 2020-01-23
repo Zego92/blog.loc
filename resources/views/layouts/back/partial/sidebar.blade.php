@@ -54,6 +54,12 @@
                         <span>Записи</span>
                     </a>
                 </li>
+                <li class="{{ Request::is('/admin/subscriber*') ? 'active' : '' }}">
+                    <a href="{{ route('adminsubscriber.index') }}">
+                        <i class="material-icons text-warning">supervisor_account</i>
+                        <span>Подписчики</span>
+                    </a>
+                </li>
                 <li class="header">Системные</li>
                 <li class="">
                     <a class="dropdown-item" href="{{ route('logout') }}"

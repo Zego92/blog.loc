@@ -5,6 +5,7 @@
       <w>admincategory</w>
       <w>admindashboard</w>
       <w>adminpost</w>
+      <w>adminsubscriber</w>
       <w>admintag</w>
       <w>authordashboard</w>
       <w>authorpost</w>
@@ -20,6 +21,7 @@
       <w>rightsidebar</w>
       <w>slimscroll</w>
       <w>sparkline</w>
+      <w>swal</w>
       <w>tinymce</w>
       <w>topbar</w>
     </words>
