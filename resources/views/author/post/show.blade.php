@@ -6,14 +6,8 @@
 @endpush
 
 @section('content')
-    @if(Session::has('flash_message_error'))
-        <div class="alert alert-success alert-block">
-            <button type="button" class="close" data-dismiss="alert"></button>
-            <strong></strong>
-        </div>
-    @endif
     <div class="container-fluid">
-        <a href="{{ route('adminpost.index') }}" class="btn btn-danger waves-effect">Назад</a>
+        <a href="{{ route('authorpost.index') }}" class="btn btn-danger waves-effect">Назад</a>
         @if($post->is_approved == false)
             <button type="button" class="btn btn-success pull-left"><i class="material-icons">done</i><span>Опубликовать</span></button>
         @else
@@ -62,7 +56,8 @@
                         <h2>Изображение</h2>
                     </div>
                     <div class="body" style="min-height: 230px;">
-                        <img class="img-responsive thumbnail" src="{{ asset('/') }}/{{ $post->image }}" alt="">
+                        <img class="img-responsive thumbnail" src="{{ asset('uploads/img/post') }}/{{ $post->image }}" alt="">
+{{--                        <img class="img-responsive thumbnail" src="{{ \Illuminate\Support\Facades\Storage::disk('public')->url('post/' . $post->image) }}" alt="">--}}
                     </div>
                 </div>
             </div>

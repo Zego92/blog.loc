@@ -11215,7 +11215,7 @@ var rscriptType = ( /^$|^module$|\/(?:java|ecma)script/i );
 
 
 
-// We have to close these tags to support XHTML (#13200)
+// We have to close these slider to support XHTML (#13200)
 var wrapMap = {
 
 	// Support: IE <=9 only
@@ -22781,7 +22781,7 @@ return jQuery;
      * A specialized version of `baseIsEqualDeep` for comparing objects of
      * the same `toStringTag`.
      *
-     * **Note:** This function only supports comparing values with tags of
+     * **Note:** This function only supports comparing values with slider of
      * `Boolean`, `Date`, `Error`, `Number`, `RegExp`, or `String`.
      *
      * @private
@@ -23279,7 +23279,7 @@ return jQuery;
     /**
      * Initializes an object clone based on its `toStringTag`.
      *
-     * **Note:** This function only supports cloning values with tags of
+     * **Note:** This function only supports cloning values with slider of
      * `Boolean`, `Date`, `Error`, `Map`, `Number`, `RegExp`, `Set`, or `String`.
      *
      * @private
@@ -37948,7 +37948,7 @@ var config = ({
 /*  */
 
 /**
- * unicode letters used for parsing html tags, component names and property paths.
+ * unicode letters used for parsing html slider, component names and property paths.
  * using https://www.w3.org/TR/html53/semantics-scripting.html#potentialcustomelementname
  * skipping \u10000-\uEFFFF due to it freezing up PhantomJS
  */
@@ -46702,7 +46702,7 @@ var canBeLeftOpenTag = makeMap(
   'colgroup,dd,dt,li,options,p,td,tfoot,th,thead,tr,source'
 );
 
-// HTML5 tags https://html.spec.whatwg.org/multipage/indices.html#elements-3
+// HTML5 slider https://html.spec.whatwg.org/multipage/indices.html#elements-3
 // Phrasing Content https://html.spec.whatwg.org/multipage/dom.html#phrasing-content
 var isNonPhrasingTag = makeMap(
   'address,article,aside,base,blockquote,body,caption,col,colgroup,dd,' +
@@ -46716,7 +46716,7 @@ var isNonPhrasingTag = makeMap(
  * Not type-checking this file because it's mostly vendor code.
  */
 
-// Regular Expressions for parsing tags and attributes
+// Regular Expressions for parsing slider and attributes
 var attribute = /^\s*([^\s"'<>\/=]+)(?:\s*(=)\s*(?:"([^"]*)"+|'([^']*)'+|([^\s"'=<>`]+)))?/;
 var dynamicArgAttribute = /^\s*((?:v-[\w-]+:|@|:|#)\[[^=]+\][^\s"'<>\/=]*)(?:\s*(=)\s*(?:"([^"]*)"+|'([^']*)'+|([^\s"'=<>`]+)))?/;
 var ncname = "[a-zA-Z_][\\-\\.0-9_a-zA-Z" + (unicodeRegExp.source) + "]*";
@@ -46879,7 +46879,7 @@ function parseHTML (html, options) {
     }
   }
 
-  // Clean up any remaining tags
+  // Clean up any remaining slider
   parseEndTag();
 
   function advance (n) {
@@ -47238,7 +47238,7 @@ function parse (
         element.forbidden = true;
         warn$2(
           'Templates should only be responsible for mapping the state to the ' +
-          'UI. Avoid placing tags with side-effects in your templates, such as ' +
+          'UI. Avoid placing slider with side-effects in your templates, such as ' +
           "<" + tag + ">" + ', as they will not be parsed.',
           { start: element.start }
         );
@@ -49685,8 +49685,8 @@ __webpack_require__.r(__webpack_exports__);
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! E:\Program Files\Open-Server\OSPanel\domains\blog.loc\resources\js\app.js */"./resources/js/app.js");
-module.exports = __webpack_require__(/*! E:\Program Files\Open-Server\OSPanel\domains\blog.loc\resources\sass\app.scss */"./resources/sass/app.scss");
+__webpack_require__(/*! /Applications/MAMP/htdocs/blog.loc/resources/js/app.js */"./resources/js/app.js");
+module.exports = __webpack_require__(/*! /Applications/MAMP/htdocs/blog.loc/resources/sass/app.scss */"./resources/sass/app.scss");
 
 
 /***/ })

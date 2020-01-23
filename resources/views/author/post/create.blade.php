@@ -7,14 +7,8 @@
 @endpush
 
 @section('content')
-    @if(Session::has('flash_message_error'))
-        <div class="alert alert-success alert-block">
-            <button type="button" class="close" data-dismiss="alert"></button>
-            <strong></strong>
-        </div>
-    @endif
     <div class="container-fluid">
-        <form action="{{ route('adminpost.store') }}" class="dropzone" method="POST" enctype="multipart/form-data">
+        <form action="{{ route('authorpost.store') }}" method="POST" enctype="multipart/form-data">
             @csrf
             <div class="row clearfix">
                 <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
@@ -26,10 +20,10 @@
                         </div>
                         <div class="body">
                             <div class="col-sm-4">
-                                <div class="form-group">
+                                <div class="form-group form-float">
                                     <div class="form-line">
                                         <label for="title" class="form-label">Название Поста</label>
-                                        <input type="text" id="title" name="title" class="form-control" aria-autocomplete="none" autocomplete="false">
+                                        <input type="text" id="title" name="title" class="form-control" >
                                     </div>
                                 </div>
                             </div>
@@ -64,7 +58,7 @@
                                 <div class="form-line {{ $errors->has('categories') ? 'focused error' : '' }}">
                                     <label for="category">Выбирите Категорию</label>
                                     <select name="categories[]" id="category" class="form-control show-tick"
-                                            data-live-search="true" multiple>
+                                            data-live-search="true" multiple >
                                         @foreach($categories as $category)
                                             <option value="{{ $category->id }}">{{ $category->name }}</option>
                                         @endforeach
@@ -75,7 +69,7 @@
                                 <div class="form-line {{ $errors->has('slider') ? 'focused error' : '' }}">
                                     <label for="tag">Выбирите Тег</label>
                                     <select name="tags[]" id="tag" class="form-control show-tick"
-                                            data-live-search="true" multiple>
+                                            data-live-search="true" multiple >
                                         @foreach($tags as $tag)
                                             <option value="{{ $tag->id }}">{{ $tag->name }}</option>
                                         @endforeach
@@ -97,13 +91,13 @@
                         <div class="body" style="min-height: 580px;">
                             <div class="form-group">
                                 <div class="form-line">
-                                    <textarea aria-label="" rows="4" class="form-control no-resize" name="body" id="tinymce" placeholder="ВВедите Текст........"></textarea>
+                                    <textarea aria-label="" rows="4" class="form-control no-resize" name="body" id="tinymce" placeholder="ВВедите Текст........" ></textarea>
                                 </div>
                             </div>
                             <div class="col-sm-6">
                                 <div class="form-group">
                                     <div class="form-line">
-                                        <a class="btn btn-danger m-t-15 waves-effect form-control" href="{{ route('adminpost.index') }}">Назад</a>
+                                        <a class="btn btn-danger m-t-15 waves-effect form-control" href="{{ route('authorpost.index') }}">Назад</a>
                                     </div>
                                 </div>
                             </div>
@@ -144,6 +138,15 @@
             });
             tinymce.suffix = ".min";
             tinyMCE.baseURL = "{{ asset('/assets/back/plugins/tinymce/') }}";
+        });
+        $('.form-control').on('focus', 'click', function () {
+            if ($('.form-control').val() !== ''){
+                $('.form-line').addClass('focused');
+            }else {
+                $('.form-line').removeClass('focused');
+            }
+
+            // $('.form-line').toggleClass('focused');
         });
     </script>
 

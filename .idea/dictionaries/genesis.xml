@@ -2,7 +2,12 @@
   <dictionary name="genesis">
     <words>
       <w>adminbsb</w>
+      <w>admincategory</w>
+      <w>admindashboard</w>
       <w>adminpost</w>
+      <w>admintag</w>
+      <w>authordashboard</w>
+      <w>authorpost</w>
       <w>chartjs</w>
       <w>clearfix</w>
       <w>countto</w>
@@ -15,6 +20,7 @@
       <w>rightsidebar</w>
       <w>slimscroll</w>
       <w>sparkline</w>
+      <w>tinymce</w>
       <w>topbar</w>
     </words>
   </dictionary>

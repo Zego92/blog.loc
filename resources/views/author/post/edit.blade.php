@@ -7,16 +7,10 @@
 @endpush
 
 @section('content')
-    @if(Session::has('flash_message_error'))
-        <div class="alert alert-success alert-block">
-            <button type="button" class="close" data-dismiss="alert"></button>
-            <strong></strong>
-        </div>
-    @endif
     <div class="container-fluid">
-        <form action="{{ route('adminpost.update', $post->id) }}" method="POST" enctype="multipart/form-data">
+        <form action="{{ route('authorpost.update', $post->id) }}" method="POST" enctype="multipart/form-data">
             @csrf
-            @method('put')
+            @method('PUT')
             <div class="row clearfix">
                 <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
                     <div class="card" style="min-height: 250px;">
@@ -30,7 +24,7 @@
                                 <div class="form-group">
                                     <div class="form-line">
                                         <label for="title" class="form-label">Название Поста</label>
-                                        <input type="text" id="title" name="title" class="form-control" aria-autocomplete="none" autocomplete="false" value="{{ $post->title }}">
+                                        <input type="text" id="title" name="title" class="form-control" value="{{ $post->title }}" required>
                                     </div>
                                 </div>
                             </div>
@@ -115,7 +109,7 @@
                             <div class="col-sm-6">
                                 <div class="form-group">
                                     <div class="form-line">
-                                        <a class="btn btn-danger m-t-15 waves-effect form-control" href="{{ route('adminpost.index') }}">Назад</a>
+                                        <a class="btn btn-danger m-t-15 waves-effect form-control" href="{{ route('authorpost.index') }}">Назад</a>
                                     </div>
                                 </div>
                             </div>

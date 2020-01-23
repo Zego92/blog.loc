@@ -13,7 +13,7 @@
         <div class="block-header">
             <ul>
                 <li style="list-style: none">
-                    <a class="btn bg-light-green waves-effect" href="{{ route('adminpost.create') }}"><i class="material-icons">add_circle</i> Новый Пост </a>
+                    <a class="btn bg-light-green waves-effect" href="{{ route('authorpost.create') }}"><i class="material-icons">add_circle</i> Новый Пост </a>
                 </li>
             </ul>
         </div>
@@ -77,16 +77,16 @@
                                     <td>{{ $post->created_at }}</td>
                                     <td>{{ $post->updated_at }}</td>
                                     <td class="text-center">
-                                        <a href="{{ route('adminpost.show',$post->id) }}" class="btn btn-info btn-circle waves-effect waves-circle waves-float">
+                                        <a href="{{ route('authorpost.show',$post->id) }}" class="btn btn-info btn-circle waves-effect waves-circle waves-float">
                                             <i class="material-icons">visibility</i>
                                         </a>
-                                        <a href="{{ route('adminpost.edit',$post->id) }}" class="btn btn-info btn-circle waves-effect waves-circle waves-float">
+                                        <a href="{{ route('authorpost.edit',$post->id) }}" class="btn btn-info btn-circle waves-effect waves-circle waves-float">
                                             <i class="material-icons">mode_edit</i>
                                         </a>
                                         <button type="button" class="btn btn-danger btn-circle waves-effect waves-circle waves-float" onclick="deletePost({{ $post->id }})">
                                             <i class="material-icons">delete_forever</i>
                                         </button>
-                                        <form id="delete-form-{{ $post->id }}" action="{{ route('adminpost.destroy', $post->id) }}" method="post" style="display: none;">
+                                        <form id="delete-form-{{ $post->id }}" action="{{ route('authorpost.destroy', $post->id) }}" method="post" style="display: none;">
                                             @csrf
                                             @method('delete')
                                         </form>

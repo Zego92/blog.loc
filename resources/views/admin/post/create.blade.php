@@ -1,6 +1,6 @@
 @extends('layouts.back.app')
 
-@section('title', 'Управление Постами')
+@section('title', 'Добавление Нового Постами')
 
 @push('css')
     <link rel="stylesheet" href="{{ asset('/assets/back/plugins/bootstrap-select/css/bootstrap-select.css') }}">
@@ -72,7 +72,7 @@
                                 </div>
                             </div>
                             <div class="col-sm-6" style="margin: 25px 0;">
-                                <div class="form-line {{ $errors->has('tags') ? 'focused error' : '' }}">
+                                <div class="form-line {{ $errors->has('slider') ? 'focused error' : '' }}">
                                     <label for="tag">Выбирите Тег</label>
                                     <select name="tags[]" id="tag" class="form-control show-tick"
                                             data-live-search="true" multiple>

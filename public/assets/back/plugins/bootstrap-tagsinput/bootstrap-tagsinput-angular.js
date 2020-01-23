@@ -68,15 +68,15 @@ angular.module('bootstrap-tagsinput', [])
 
           prev = scope.model.slice();
 
-          // Remove tags no longer in binded model
+          // Remove slider no longer in binded model
           for (i = 0; i < removed.length; i++) {
             select.tagsinput('remove', removed[i]);
           }
 
-          // Refresh remaining tags
+          // Refresh remaining slider
           select.tagsinput('refresh');
 
-          // Add new items in model as tags
+          // Add new items in model as slider
           for (i = 0; i < added.length; i++) {
             select.tagsinput('add', added[i]);
           }

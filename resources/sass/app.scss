@@ -6,3 +6,7 @@
 
 // Bootstrap
 @import '~bootstrap/scss/bootstrap';
+
+.buttons-copy, .buttons-csv, .buttons-excel, .buttons-pdf, .buttons-print{
+    vertical-align: middle !important;
+}

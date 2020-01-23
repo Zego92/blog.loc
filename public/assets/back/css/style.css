@@ -2490,7 +2490,7 @@ section.content {
   -ms-border-radius: 2px;
   border-radius: 2px;
   border: none;
-  font-size: 13px;
+  font-size: 17px;
   outline: none; }
   .btn:not(.btn-link):not(.btn-circle):hover {
     outline: none; }
@@ -8142,9 +8142,14 @@ fieldset[disabled] .form-control {
       border-radius: 2px;
       border: none;
       font-size: 13px;
-      outline: none; }
+      outline: none;
+    }
       .dataTables_wrapper .dt-buttons a.dt-button:active {
-        opacity: 0.8; }
+        opacity: 0.8;
+      }
+.dataTables_wrapper .dt-buttons a.dt-button span{
+    vertical-align: middle !important;
+}
 
 .dt-button-info {
   position: fixed;
@@ -8184,30 +8189,44 @@ html.ie10 .sidebar .menu .list .ml-menu li.active a:not(.menu-toggle).toggled:be
   line-height: 20px !important; }
 
 html.ie10 .sidebar .user-info .info-container {
-  top: 15px; }
+  top: 15px;
+}
 
 html.ie10 .search-bar input[type="text"] {
-  padding: 26px 60px 26px 56px; }
+  padding: 26px 60px 26px 56px;
+}
 
 html.ie10 .dropdown-menu ul.menu li a {
-  margin-top: -22px; }
+  margin-top: -22px;
+}
 
 html.ie10 .bs-searchbox .form-control {
-  width: 90%; }
+  width: 90%;
+}
 
 /* For Internet Explorer 11 ===================== */
 html.ie11 .sidebar .menu .list .ml-menu li.active a:not(.menu-toggle).toggled:before {
   top: 6px !important;
-  line-height: 20px !important; }
+  line-height: 20px !important;
+}
 
 html.ie11 .sidebar .user-info .info-container {
-  top: 15px; }
+  top: 15px;
+}
 
 html.ie11 .search-bar input[type="text"] {
-  padding: 26px 60px 26px 56px; }
+  padding: 26px 60px 26px 56px;
+}
 
 html.ie11 .dropdown-menu ul.menu li a {
-  margin-top: -22px; }
+  margin-top: -22px;
+}
 
 html.ie11 .bs-searchbox .form-control {
-  width: 90%; }
+  width: 90%;
+}
+
+
+.buttons-copy, .buttons-csv, .buttons-excel, .buttons-pdf, .buttons-print{
+    vertical-align: middle !important;
+}
