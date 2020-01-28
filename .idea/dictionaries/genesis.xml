@@ -1,30 +1,13 @@
 <component name="ProjectDictionaryState">
-  <dictionary name="genesis">
+  <dictionary name="Genesis">
     <words>
-      <w>adminbsb</w>
-      <w>admincategory</w>
-      <w>admindashboard</w>
-      <w>adminpost</w>
-      <w>adminsubscriber</w>
-      <w>admintag</w>
-      <w>authordashboard</w>
-      <w>authorpost</w>
-      <w>beanstalkd</w>
-      <w>chartjs</w>
-      <w>clearfix</w>
-      <w>countto</w>
-      <w>datatables</w>
-      <w>flot</w>
-      <w>leftsidebar</w>
-      <w>mins</w>
-      <w>morrisjs</w>
-      <w>navbar</w>
-      <w>rightsidebar</w>
-      <w>slimscroll</w>
-      <w>sparkline</w>
-      <w>swal</w>
-      <w>tinymce</w>
-      <w>topbar</w>
+      <w>adminprofile</w>
+      <w>adminsettings</w>
+      <w>chatbubble</w>
+      <w>instagram</w>
+      <w>pinterest</w>
+      <w>swiper</w>
+      <w>vimeo</w>
     </words>
   </dictionary>
 </component>

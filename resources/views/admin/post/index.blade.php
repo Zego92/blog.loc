@@ -68,7 +68,7 @@
                                     </td>
                                     <td class="text-center">
                                         @if( $post->status == true )
-                                            <button type="button" class="btn btn-success waves-effect">Одобрено</button>
+                                            <button type="button" class="btn btn-success waves-effect">Опубликовано</button>
                                         @else
                                             <button type="button" class="btn btn-danger waves-effect">Запрещено</button>
                                         @endif
