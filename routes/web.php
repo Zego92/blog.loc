@@ -26,13 +26,12 @@ Route::group(['as' => 'admin', 'prefix' => 'admin', 'namespace' => 'Admin', 'mid
     Route::get('/dashboard', 'DashboardController@index')->name('dashboard');
     Route::resource('tag', 'TagController');
     Route::resource('category', 'CategoryController');
-    Route::resource('post', 'PostController');
 
     Route::get('subscriber', 'SubscriberController@index')->name('subscriber.index');
     Route::delete('subscriber/{subscriber}', 'SubscriberController@destroy')->name('subscriber.destroy');
+    Route::resource('post', 'PostController');
 });
 
 Route::group(['as' => 'author','prefix' => 'author', 'namespace' => 'Author', 'middleware' => ['auth', 'author']], function (){
     Route::get('/dashboard', 'DashboardController@index')->name('dashboard');
-    Route::resource('post', 'PostController');
 });

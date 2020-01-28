@@ -7,14 +7,8 @@
 @endpush
 
 @section('content')
-    @if(Session::has('flash_message_error'))
-        <div class="alert alert-success alert-block">
-            <button type="button" class="close" data-dismiss="alert"></button>
-            <strong></strong>
-        </div>
-    @endif
     <div class="container-fluid">
-        <form action="{{ route('adminpost.store') }}" class="dropzone" method="POST" enctype="multipart/form-data">
+        <form action="{{ route('adminpost.store') }}" method="POST" enctype="multipart/form-data">
             @csrf
             <div class="row clearfix">
                 <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
@@ -29,7 +23,7 @@
                                 <div class="form-group">
                                     <div class="form-line">
                                         <label for="title" class="form-label">Название Поста</label>
-                                        <input type="text" id="title" name="title" class="form-control" aria-autocomplete="none" autocomplete="false">
+                                        <input type="text" id="title" name="title" class="form-control" required>
                                     </div>
                                 </div>
                             </div>

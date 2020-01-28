@@ -3,13 +3,17 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Category;
+use App\Notifications\NewPostNotify;
 use App\Post;
 use App\Http\Controllers\Controller;
+use App\Subscriber;
 use App\Tag;
+use App\User;
 use Brian2694\Toastr\Facades\Toastr;
 use Illuminate\Http\Request;
 use Illuminate\Support\Carbon;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Notification;
 use Illuminate\Support\Facades\Storage;
 use Intervention\Image\Facades\Image;
 
@@ -50,7 +54,7 @@ class PostController extends Controller
             'title' => 'required',
             'image' => 'required',
             'categories' => 'required',
-            'slider' => 'required',
+            'tags' => 'required',
             'body' => 'required',
         ]);
         $image = $request->file('image');
@@ -91,6 +95,15 @@ class PostController extends Controller
 
         $post->categories()->attach($request->categories);
         $post->tags()->attach($request->tags);
+
+        $users = User::where('role_id', '1')->get();
+        Notification::send($users, new \App\Notifications\Post($post));
+
+        $subscribers = Subscriber::all();
+        foreach ($subscribers as $subscriber)
+        {
+            Notification::route('mail', $subscriber->email)->notify(new NewPostNotify($post));
+        }
 
         Toastr::success('Пост Успешно Создан :)', 'Успех');
         return redirect()->route('adminpost.index');
