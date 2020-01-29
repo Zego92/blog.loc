@@ -5,6 +5,11 @@
 @push('css')
     <link href="{{ asset('/assets/front/css/styles.css') }}" rel="stylesheet">
     <link href="{{ asset('/assets/front/css/responsive.css') }}" rel="stylesheet">
+    <style>
+        .favorite-posts{
+
+        }
+    </style>
 @endpush
 
 @section('content')
@@ -48,19 +53,33 @@
                     <div class="card h-100">
                         <div class="single-post post-style-1">
                             <div class="blog-image">
-                                <img src="{{ asset('uploads/img/post') }}/{{ $post->image }}" alt="{{ $post->title }}">
+                                <img src="{{ asset('/uploads/img/post') }}/{{ $post->image }}" alt="{{ $post->title }}">
                             </div>
                             <a class="avatar" href="#">
-                                <img src="{{ asset('/assets/front/images/icons8-team-355979.jpg') }}" alt="Profile Image">
+                                <img src="{{ asset('/uploads/img/profile') }}/{{ $post->user->image }}" alt="Profile Image">
                             </a>
                             <div class="blog-info">
                                 <h4 class="title">
                                     <a href="#"><b>{{ $post->title }}</b></a>
                                 </h4>
                                 <ul class="post-footer">
-                                    <li><a href="#"><i class="ion-heart"></i>57</a></li>
+
+                                    <li>
+                                        @guest
+                                            <a href="javascript:void(0);" onclick="toastr.info('Для выполнения этого действия необходима авторизация', 'Внимание',{
+                                                closeButton: true,
+                                                progressBar: true,
+                                            })"><i class="ion-heart"></i>{{ $post->favorite_to_users->count() }}</a>
+                                        @else
+                                            <a class="{{ Auth::user()->favorite_posts->where('pivot.post_id', $post->id)->count() == 0 ? 'favorite_posts' : '' }}" href="javascript:void(0);" onclick="document.getElementById('favorite-form-{{ $post->id }}').submit();"><i class="ion-heart"></i>{{ $post->favorite_to_users->count() }}</a>
+
+                                            <form id="favorite-form-{{ $post->id }}" method="post" action="{{ route('post.favorite', $post->id) }}" style="display: none;">
+                                                @csrf
+                                            </form>
+                                        @endguest
+                                    </li>
                                     <li><a href="#"><i class="ion-chatbubble"></i>6</a></li>
-                                    <li><a href="#"><i class="ion-eye"></i>138</a></li>
+                                    <li><a href="#"><i class="ion-eye"></i>{{ $post->view_count }}</a></li>
                                 </ul>
                             </div>
                         </div>

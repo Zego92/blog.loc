@@ -38,8 +38,8 @@
                                 </a>
                             </li>
                             <li role="presentation">
-                                <a href="#profile_with_icon_title" data-toggle="tab">
-                                    <i class="material-icons">face</i> Пароль
+                                <a href="#change_password_with_icon_title" data-toggle="tab">
+                                    <i class="material-icons">change_history</i> Пароль
                                 </a>
                             </li>
                         </ul>
@@ -52,7 +52,7 @@
                                         <div class="card">
                                             <div class="header">
                                                 <h2>
-                                                    Форма Изменения Пароль
+                                                    Настройки Профиля
                                                 </h2>
                                             </div>
                                             <div class="body">
@@ -118,14 +118,65 @@
                                     </div>
                                 </div>
                             </div>
-                            <div role="tabpanel" class="tab-pane fade" id="profile_with_icon_title">
-                                <b>Settings Content</b>
-                                <p>
-                                    Lorem ipsum dolor sit amet, ut duo atqui exerci dicunt, ius impedit mediocritatem an. Pri ut tation electram moderatius.
-                                    Per te suavitate democritum. Duis nemore probatus ne quo, ad liber essent aliquid
-                                    pro. Et eos nusquam accumsan, vide mentitum fabellas ne est, eu munere gubergren
-                                    sadipscing mel.
-                                </p>
+                            <div role="tabpanel" class="tab-pane fade" id="change_password_with_icon_title">
+                                <div class="row clearfix">
+                                    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                                        <div class="card">
+                                            <div class="header">
+                                                <h2>
+                                                    Изменение Пароля
+                                                </h2>
+                                            </div>
+                                            <div class="body">
+                                                <form method="post" action="{{ route('adminpassword.update') }}" class="form-horizontal">
+                                                    @csrf
+                                                    @method('put')
+                                                    <div class="row clearfix">
+                                                        <div class="col-lg-3 col-md-3 col-sm-4 col-xs-5 form-control-label">
+                                                            <label for="old_password">Старый Пароль : </label>
+                                                        </div>
+                                                        <div class="col-lg-9 col-md-9 col-sm-8 col-xs-7">
+                                                            <div class="form-group">
+                                                                <div class="form-line">
+                                                                    <input type="password" id="old_password" name="old_password" class="form-control" placeholder="Введите Старый Пароль" required>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="row clearfix">
+                                                        <div class="col-lg-3 col-md-3 col-sm-4 col-xs-5 form-control-label">
+                                                            <label for="password">Новый Пароль : </label>
+                                                        </div>
+                                                        <div class="col-lg-9 col-md-9 col-sm-8 col-xs-7">
+                                                            <div class="form-group">
+                                                                <div class="form-line">
+                                                                    <input type="password" id="password" name="password" class="form-control" placeholder="Введите Новый Пароль" required>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="row clearfix">
+                                                        <div class="col-lg-3 col-md-3 col-sm-4 col-xs-5 form-control-label">
+                                                            <label for="confirm_password">Повторите Пароль : </label>
+                                                        </div>
+                                                        <div class="col-lg-9 col-md-9 col-sm-8 col-xs-7">
+                                                            <div class="form-group">
+                                                                <div class="form-line">
+                                                                    <input type="password" id="confirm_password" name="password_confirmation" class="form-control" placeholder="Повторите Пароль" required>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="row clearfix">
+                                                        <div class="col-lg-offset-2 col-md-offset-2 col-sm-offset-4 col-xs-offset-5">
+                                                            <button type="submit" class="btn btn-primary m-t-15 waves-effect">Сохранить</button>
+                                                        </div>
+                                                    </div>
+                                                </form>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>

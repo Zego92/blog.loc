@@ -8,10 +8,11 @@ use Brian2694\Toastr\Facades\Toastr;
 use Illuminate\Http\Request;
 use Illuminate\Support\Carbon;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Storage;
-use Intervention\Image\Image;
+//use Intervention\Image\Image;
 
-//use Intervention\Image\Facades\Image;
+use Intervention\Image\Facades\Image;
 
 class SettingsController extends Controller
 {
@@ -45,7 +46,7 @@ class SettingsController extends Controller
                 Storage::disk('public')->delete('profile' . $user->image);
             }
 
-            $profile = Image::make($image)->resize('500', '500')->save();
+            $profile = Image::make($image)->resize('500', '500')->save(public_path('/uploads/img/profile/' . $imageName));
             Storage::disk('public')->put('profile/' . $imageName, $profile);
         }
         else
@@ -59,5 +60,36 @@ class SettingsController extends Controller
         $user->save();
         Toastr::success('Профиль Успешно Обновлен :)', 'Успех');
         return redirect()->route('adminsettings');
+    }
+
+    public function updatePassword(Request $request)
+    {
+        $this->validate($request, [
+            'old_password' => 'required',
+            'password' => 'required|confirmed',
+        ]);
+
+        $hashedPassword = Auth::user()->password;
+        if (Hash::check($request->old_password, $hashedPassword)) {
+            if (!Hash::check($request->password, $hashedPassword))
+            {
+                $user = User::find(Auth::id());
+                $user->password = Hash::make($request->password);
+                $user->save();
+                Toastr::success('Пароль Успешно Изменен :)', 'Успех');
+                Auth::logout();
+                return redirect()->route('home');
+            }
+            else
+            {
+                Toastr::error('Новый Пароль Должен Отличаться от Старого', 'Ошибка');
+                return redirect()->route('adminsettings');
+            }
+        }
+        else
+        {
+            Toastr::error('Пароль не совпадает', 'Ошибка');
+            return redirect()->route('adminsettings');
+        }
     }
 }
