@@ -63,7 +63,6 @@
                                     <a href="{{ route('post.details', $post->slug) }}"><b>{{ $post->title }}</b></a>
                                 </h4>
                                 <ul class="post-footer">
-
                                     <li>
                                         @guest
                                             <a href="javascript:void(0);" onclick="toastr.info('Для выполнения этого действия необходима авторизация', 'Внимание',{

@@ -135,8 +135,12 @@ header .src-area .src-btn{ position: absolute; top: 0; bottom: 0; left: 0; width
 4. SLIDER
 --------------------------------- */
 
-.slider{ height: 400px; width: 100%; background-size: cover; margin: 0;
-    background-image: url(../../images/category-1.jpg); }
+.slider{
+    height: 400px;
+    width: 100%;
+    background-size: cover;
+    margin: 0;
+}
 
 .slider .title{ color: #fff; text-shadow: 2px 2px 10px rgba(0,0,0,.3); }
 
@@ -153,8 +157,6 @@ header .src-area .src-btn{ position: absolute; top: 0; bottom: 0; left: 0; width
 .post-area .post-info .left-area{ height: 70px; width: 70px; border-radius: 100px; overflow: hidden; position: absolute;
     top: 50%; margin-top: -35px; border: 6px	solid #fff; box-shadow: 0px 0px 5px rgba(0,0,0,.3); }
 
-.post-area .post-info .middle-area{ padding-left: 90px; display: inline-block; }
-
 .post-area .post-info .date{ display: inline-block; color: #999; }
 
 .post-area .post-info .right-area{ float: right; }
@@ -164,18 +166,30 @@ header .src-area .src-btn{ position: absolute; top: 0; bottom: 0; left: 0; width
 6. MAIN POST ( LEF AREA )
 --------------------------------- */
 
-.main-post{ border-right: 1px solid #ddd; }
+.main-post{
+    border-right: 1px solid #ddd;
+}
 
-.main-post .blog-post-inner{ padding-right: 30px; }
+.main-post .blog-post-inner{
+    padding-right: 30px;
+}
 
-.main-post .title{ margin-bottom: 30px; }
+.main-post .title{
+    margin-bottom: 30px;
+}
 
-.main-post .para{ margin: 30px 0; }
+.main-post .para{
+    margin: 30px 0;
+}
 
-.main-post ul.tags{ margin: 30px 0; }
+.main-post ul.tags{
+    margin: 30px 0;
+}
 
-.main-post ul.tags > li > a{ padding: 7px 10px; margin-bottom: 10px; margin-right: 10px; float: left;
-    border: 1px solid #ddd; background: #ddd; }
+.main-post ul.tags > li > a{
+    margin-bottom: 10px;
+    float: left;
+}
 
 .main-post ul.tags > li > a:hover{ background: none; }
 
