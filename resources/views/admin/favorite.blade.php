@@ -33,11 +33,10 @@
                                 <tr>
                                     <th>№</th>
                                     <th>Имя</th>
-                                    <th><i class="material-icons text-danger">image</i></th>
+                                    <th><i class="material-icons text-danger">favorite</i></th>
+                                    <th><i class="material-icons text-success">comment</i></th>
                                     <th><i class="material-icons text-primary">visibility</i></th>
-                                    <th>Статус</th>
-                                    <th>Создан</th>
-                                    <th>Обновлен</th>
+                                    <th>Изображение</th>
                                     <th>Действие</th>
                                 </tr>
                                 </thead>
@@ -45,50 +44,33 @@
                                 <tr>
                                     <th>№</th>
                                     <th>Имя</th>
-                                    <th><i class="material-icons text-danger">image</i></th>
+                                    <th><i class="material-icons text-danger">favorite</i></th>
+                                    <th><i class="material-icons text-success">comment</i></th>
                                     <th><i class="material-icons text-primary">visibility</i></th>
-                                    <th>Статус</th>
-                                    <th>Создан</th>
-                                    <th>Обновлен</th>
+                                    <th>Изображение</th>
                                     <th>Действие</th>
                                 </tr>
                                 </tfoot>
                                 <tbody>
                                 @foreach($posts as $key => $post)
-                                <tr>
+                                    <tr>
 
-                                    <td>{{ $key + 1 }}</td>
-                                    <td>{{ str_limit($post->title, '10') }}</td>
-                                    <td>{{ str_limit($post->image, '10') }}</td>
-                                    <td class="text-center">
-                                        <button type="button" class="btn btn-info waves-effect">{{ $post->view_count }}</button>
-                                    </td>
-                                    <td class="text-center">
-                                        @if( $post->status == true )
-                                            <button style="font-size: 13px;" type="button" class="btn btn-success waves-effect">Опубликовано</button>
-                                        @else
-                                            <button style="font-size: 13px;" type="button" class="btn btn-danger waves-effect">Запрещено</button>
-                                        @endif
-                                    </td>
-
-                                    <td>{{ $post->created_at }}</td>
-                                    <td>{{ $post->updated_at }}</td>
-                                    <td class="text-center">
-                                        <a href="{{ route('adminpost.show',$post->id) }}" class="btn btn-info btn-circle waves-effect waves-circle waves-float">
-                                            <i class="material-icons">visibility</i>
-                                        </a>
-                                        <a href="{{ route('adminpost.edit',$post->id) }}" class="btn btn-info btn-circle waves-effect waves-circle waves-float">
-                                            <i class="material-icons">mode_edit</i>
-                                        </a>
-                                        <button type="button" class="btn btn-danger btn-circle waves-effect waves-circle waves-float" onclick="deletePost({{ $post->id }})">
-                                            <i class="material-icons">delete_forever</i>
-                                        </button>
-                                        <form id="delete-form-{{ $post->id }}" action="{{ route('adminpost.destroy', $post->id) }}" method="post" style="display: none;">
-                                            @csrf
-                                            @method('delete')
-                                        </form>
-                                    </td>
-                                </tr>
+                                        <td>{{ $key + 1 }}</td>
+                                        <td>{{ str_limit($post->title, '10') }}</td>
+                                        <td>{{ str_limit($post->favorite_to_users->count()) }}</td>
+                                        <td>{{ $post->image }}</td>
+                                        <td class="text-center">
+                                            <button type="button" class="btn btn-info waves-effect">{{ $post->view_count }}</button>
+                                        </td>
+                                        <td class="text-center">
+                                            <button type="button" class="btn btn-danger btn-circle waves-effect waves-circle waves-float" onclick="removePost({{ $post->id }})">
+                                                <i class="material-icons">delete_forever</i>
+                                            </button>
+                                            <form id="remove-form-{{ $post->id }}" action="{{ route('post.favorite', $post->id) }}" method="post" style="display: none;">
+                                                @csrf
+                                            </form>
+                                        </td>
+                                    </tr>
                                 @endforeach
                                 </tbody>
                             </table>
@@ -127,7 +109,7 @@
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@9"></script>
 
     <script>
-        function deletePost(id) {
+        function removePost(id) {
             const swalWithBootstrapButtons = Swal.mixin({
                 customClass: {
                     confirmButton: 'btn btn-success',
@@ -147,7 +129,7 @@
             }).then((result) => {
                 if (result.value) {
                     event.preventDefault();
-                    document.getElementById('delete-form-' + id).submit();
+                    document.getElementById('remove-form-' + id).submit();
                 } else if (
                     /* Read more about handling dismissals below */
                     result.dismiss === Swal.DismissReason.cancel

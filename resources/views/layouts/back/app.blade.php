@@ -28,7 +28,7 @@
 
     <link href="{{ asset('/assets/back/css/themes/all-themes.css') }}" rel="stylesheet" />
 
-    <link rel="stylesheet" href="https://cdn.bootcss.com/toastr.js/latest/css/toastr.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/2.1.4/toastr.min.css">
 
     @stack('css')
 </head>
@@ -82,7 +82,7 @@
 
 <script src="{{ asset('/assets/back/js/demo.js') }}"></script>
 
-<script src="https://cdn.bootcss.com/toastr.js/latest/js/toastr.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/2.1.4/toastr.min.js"></script>
 
 {!! Toastr::message() !!}
 

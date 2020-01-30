@@ -21,7 +21,7 @@ class FavoriteController extends Controller
         }
         else
         {
-            $user->favorite_posts()->dettach($post);
+            $user->favorite_posts()->detach($post);
             Toastr::success('Пост Успешно Удален из Списка Сохраненных :)', 'Успех');
             return redirect()->route('home');
         }

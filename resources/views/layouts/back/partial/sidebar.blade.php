@@ -42,6 +42,12 @@
                         <span>Подписчики</span>
                     </a>
                 </li>
+                <li class="{{ Request::is('/admin/favorite') ? 'active' : '' }}">
+                    <a href="{{ route('adminfavorite.index') }}">
+                        <i class="material-icons text-warning">favorite</i>
+                        <span>Избранные</span>
+                    </a>
+                </li>
                 <li class="header">Системные</li>
                 <li class="{{ Request::is('/admin/settings*') ? 'active' : '' }}">
                     <a href="{{ route('adminsettings') }}">

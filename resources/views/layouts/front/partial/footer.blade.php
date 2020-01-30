@@ -30,11 +30,11 @@
             <div class="col-lg-4 col-md-6">
                 <div class="footer-section">
 
-                    <h4 class="title"><b>SUBSCRIBE</b></h4>
+                    <h4 class="title"><b>Подписаться</b></h4>
                     <div class="input-area">
                         <form action="{{ route('subscriber.store') }}" method="post">
                             @csrf
-                            <input aria-label="" class="email-input" name="email" type="email" placeholder="Enter your email" required>
+                            <input aria-label="" class="email-input" name="email" type="email" placeholder="Введите Ваш Email" required>
                             <button class="submit-btn" type="submit"><i class="icon ion-ios-email-outline"></i></button>
                         </form>
                     </div>

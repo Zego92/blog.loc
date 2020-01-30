@@ -11356,3 +11356,11 @@ a.text-dark:focus {
   }
 }
 
+.buttons-copy,
+.buttons-csv,
+.buttons-excel,
+.buttons-pdf,
+.buttons-print {
+  vertical-align: middle !important;
+}
+

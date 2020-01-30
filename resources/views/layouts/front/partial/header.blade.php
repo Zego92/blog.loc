@@ -4,14 +4,13 @@
         <div class="menu-nav-icon" data-nav-menu="#main-menu"><i class="ion-navicon"></i></div>
         <ul class="main-menu visible-on-click" id="main-menu">
             <li><a href="{{ route('home') }}">Главная</a></li>
+            <li><a href="{{ route('post.index') }}">Записи</a></li>
             <li><a href="#">Категории</a></li>
-            <li><a href="{{ route('login') }}">Авторизация</a></li>
-            <li><a href="{{ route('register') }}">Регистрация</a></li>
         </ul>
         <div class="src-area">
             <form>
                 <button class="src-btn" type="submit"><i class="ion-ios-search-strong"></i></button>
-                <input aria-label="" class="src-input" type="text" placeholder="Type of search">
+                <input aria-label="" class="src-input" type="text" placeholder="Поиск">
             </form>
         </div>
     </div>

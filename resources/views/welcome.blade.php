@@ -55,12 +55,12 @@
                             <div class="blog-image">
                                 <img src="{{ asset('/uploads/img/post') }}/{{ $post->image }}" alt="{{ $post->title }}">
                             </div>
-                            <a class="avatar" href="#">
-                                <img src="{{ asset('/uploads/img/profile') }}/{{ $post->user->image }}" alt="Profile Image">
-                            </a>
+{{--                            <a class="avatar" href="{{ route('post.details', $post->slug) }}">--}}
+{{--                                <img src="{{ asset('/uploads/img/profile') }}/{{ $post->user->image }}" alt="Profile Image">--}}
+{{--                            </a>--}}
                             <div class="blog-info">
                                 <h4 class="title">
-                                    <a href="#"><b>{{ $post->title }}</b></a>
+                                    <a href="{{ route('post.details', $post->slug) }}"><b>{{ $post->title }}</b></a>
                                 </h4>
                                 <ul class="post-footer">
 
@@ -89,7 +89,7 @@
                 @endforeach
 
             </div>
-            <a class="load-more-btn" href="#"><b>LOAD MORE</b></a>
+            <a class="load-more-btn" href="#"><b>Загрузить Еще</b></a>
         </div>
     </section>
 @endsection

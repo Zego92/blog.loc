@@ -192,7 +192,7 @@ class CategoryController extends Controller
             Storage::disk('public')->delete('category/slider/'.$category->image);
         }
         $category->delete();
-        Toastr::success('Category Successfully Deleted :)','Success');
+        Toastr::success('Категория Успешно Удалена :)','Успех');
         return redirect()->route('admincategory.index');
     }
 
