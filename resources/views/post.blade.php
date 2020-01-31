@@ -8,12 +8,6 @@
     <link href="{{ asset('/assets/front/css/post/style.css') }}" rel="stylesheet">
     <link href="{{ asset('/assets/front/css/post/responsive.css') }}" rel="stylesheet">
     <style>
-        .header-bg{
-            height: 400px;
-            width: 100%;
-
-            background-size: cover;
-        }
         .favorite_posts{
             color: blue;
         }
@@ -40,7 +34,7 @@
                                     <h6 class="date">Опубликован {{ $post->created_at->diffForHumans() }}</h6>
                                 </div>
                             </div>
-                            <div class="post-image"><img src="{{ asset('/uploads/img/post/' . $post->image) }}" alt="Blog Image"></div>
+                            <div class="post-image"><img src="{{ asset('/uploads/img/post/' . $post->image) }}" alt="{{ $post->title }}"></div>
                             <p class="para">
                                 {{ html_entity_decode($post->body) }}
                             </p>
@@ -66,7 +60,7 @@
                                         </form>
                                     @endguest
                                 </li>
-                                <li><a href="#"><i class="ion-chatbubble"></i>6</a></li>
+                                <li><a href="#"><i class="ion-chatbubble"></i>{{ $randompost->comments->count() }}</a></li>
                                 <li><a href="#"><i class="ion-eye"></i>{{ $post->view_count }}</a></li>
                             </ul>
                             <ul class="icons">
@@ -134,7 +128,7 @@
                                             </form>
                                         @endguest
                                     </li>
-                                    <li><a href="#"><i class="ion-chatbubble"></i>6</a></li>
+                                    <li><a href="#"><i class="ion-chatbubble"></i>{{ $randompost->comments->count() }}</a></li>
                                     <li><a href="#"><i class="ion-eye"></i>{{ $randompost->view_count }}</a></li>
                                 </ul>
                             </div>
@@ -148,103 +142,51 @@
 
     <section class="comment-section">
         <div class="container">
-            <h4><b>POST COMMENT</b></h4>
+            <h4><b>Комментарии</b></h4>
             <div class="row">
-                <div class="col-lg-8 col-md-12">
+                <div class="col-lg-12 col-md-12">
                     <div class="comment-form">
-                        <form method="post">
+                        @guest
+                            <p class="text-center">Для добавления Комментариев необходимо <a class="btn btn-outline-danger" href="{{ route('login') }}">Авторизоваться</a></p>
+                        @else
+                        <form method="post" action="{{ route('comment.store', $post->id) }}">
+                            @csrf
                             <div class="row">
-                                <div class="col-sm-6">
-                                    <input aria-label="" type="text" aria-required="true" name="contact-form-name" class="form-control"
-                                           placeholder="Enter your name" aria-invalid="true" required >
-                                </div>
-                                <div class="col-sm-6">
-                                    <input aria-label="" type="email" aria-required="true" name="contact-form-email" class="form-control"
-                                           placeholder="Enter your email" aria-invalid="true" required>
-                                </div>
-
                                 <div class="col-sm-12">
-									<textarea aria-label="" name="contact-form-message" rows="2" class="text-area-messge form-control"
-                                              placeholder="Enter your comment" aria-required="true" aria-invalid="false"></textarea >
+									<textarea aria-label="" name="comment" rows="2" class="text-area-messge form-control"
+                                              placeholder="Напишите Комментарий" aria-required="true" aria-invalid="false"></textarea >
                                 </div>
                                 <div class="col-sm-12">
-                                    <button class="submit-btn" type="submit" id="form-submit"><b>POST COMMENT</b></button>
+                                    <button class="submit-btn" type="submit" id="form-submit"><b>Добавить</b></button>
                                 </div>
                             </div>
                         </form>
+                        @endguest
                     </div>
-                    <h4><b>COMMENTS(12)</b></h4>
-                    <div class="commnets-area">
-                        <div class="comment">
-                            <div class="post-info">
-                                <div class="left-area">
-                                    <a class="avatar" href="#"><img src="images/avatar-1-120x120.jpg" alt="Profile Image"></a>
-                                </div>
-                                <div class="middle-area">
-                                    <a class="name" href="#"><b>Katy Liu</b></a>
-                                    <h6 class="date">on Sep 29, 2017 at 9:48 am</h6>
-                                </div>
-                                <div class="right-area">
-                                    <h5 class="reply-btn" ><a href="#"><b>REPLY</b></a></h5>
+                    <button type="button" class="btn btn-primary">
+                        Комментриев <span class="badge badge-light">{{ $post->comments()->count() }}</span>
+                    </button>
+                    @if($post->comments->count() >= 0)
+                        @foreach($post->comments as $comment)
+                            <div class="commnets-area ">
+                                <div class="comment">
+                                    <div class="post-info">
+                                        <div class="middle-area">
+                                            <a class="name" href="#"><b>{{ $comment->user->name }}</b></a>
+                                            <h6 class="date">{{ $comment->created_at->diffForHumans() }}</h6>
+                                        </div>
+                                    </div>
+                                    <p>{{ $comment->comment }}</p>
                                 </div>
                             </div>
-                            <p>
-                                Lorem ipsum dolor sit amet, consectetur adipiscing elit,
-                                sed do eiusmod tempor incididunt
-                                ut labore et dolore magna aliqua.
-                                Lorem ipsum dolor sit amet,
-                                consectetur
-                                Ut enim ad minim veniam
-                            </p>
-                        </div>
-                        <div class="comment">
-                            <h5 class="reply-for">Reply for <a href="#"><b>Katy Lui</b></a></h5>
-                            <div class="post-info">
-                                <div class="left-area">
-                                    <a class="avatar" href="#"><img src="images/avatar-1-120x120.jpg" alt="Profile Image"></a>
-                                </div>
-                                <div class="middle-area">
-                                    <a class="name" href="#"><b>Katy Liu</b></a>
-                                    <h6 class="date">on Sep 29, 2017 at 9:48 am</h6>
-                                </div>
-                                <div class="right-area">
-                                    <h5 class="reply-btn" ><a href="#"><b>REPLY</b></a></h5>
-                                </div>
+                        @endforeach
+                    @else
+                        <div class="comments-area">
+                            <div class="comment">
+                                <p>Комментариев Нет</p>
                             </div>
-                            <p>
-                                Lorem ipsum dolor sit amet,
-                                consectetur adipiscing elit,
-                                sed do eiusmod tempor incididunt
-                                ut labore et dolore magna aliqua.
-                                Lorem ipsum dolor sit amet, consectetur
-                                Ut enim ad minim veniam
-                            </p>
                         </div>
-                    </div>
-                    <div class="commnets-area ">
-                        <div class="comment">
-                            <div class="post-info">
-                                <div class="left-area">
-                                    <a class="avatar" href="#"><img src="images/avatar-1-120x120.jpg" alt="Profile Image"></a>
-                                </div>
-                                <div class="middle-area">
-                                    <a class="name" href="#"><b>Katy Liu</b></a>
-                                    <h6 class="date">on Sep 29, 2017 at 9:48 am</h6>
-                                </div>
-                                <div class="right-area">
-                                    <h5 class="reply-btn" ><a href="#"><b>REPLY</b></a></h5>
-                                </div>
-                            </div>
-                            <p>
-                                Lorem ipsum dolor sit amet, consectetur adipiscing elit,
-                                sed do eiusmod tempor incididunt
-                                ut labore et dolore magna aliqua.
-                                Lorem ipsum dolor sit amet, consectetur
-                                Ut enim ad minim veniam
-                            </p>
-                        </div>
-                    </div>
-                    <a class="more-comment-btn" href="#"><b>VIEW MORE COMMENTS</b></a>
+                    @endif
                 </div>
             </div>
         </div>

@@ -11,45 +11,52 @@
     <div class="menu">
         <ul class="list">
             <li class="header">Навигация</li>
-            @if(Request::is('admin*'))
-                <li class="{{ Request::is('/admin/dashboard') ? 'active' : '' }}">
+            @if(Request::is('admin/*'))
+                <li class='{{ Request::is('admin/dashboard') ? "active" : '' }}'>
                     <a href="{{ route('admindashboard') }}">
                         <i class="material-icons text-success">dashboard</i>
                         <span>Главная</span>
                     </a>
                 </li>
-                <li class="{{ Request::is('/admin/tag*') ? 'active' : '' }}">
+                {{ Request::is('admin/dashboard') ? '' : '' }}
+                <li class="{{ Request::is('admin/tag*')  ? 'active' : ''}}">
                     <a href="{{ route('admintag.index') }}">
                         <i class="material-icons text-primary">label</i>
                         <span>Теги</span>
                     </a>
                 </li>
-                <li class="{{ Request::is('/admin/category*') ? 'active' : '' }}">
+                <li class="{{ Request::is('admin/category*') ? 'active' : '' }}">
                     <a href="{{ route('admincategory.index') }}">
                         <i class="material-icons text-info">view_module</i>
                         <span>Категории</span>
                     </a>
                 </li>
-                <li class="{{ Request::is('/admin/post*') ? 'active' : '' }}">
+                <li class="{{ Request::is('admin/post*') ? 'active' : '' }}">
                     <a href="{{ route('adminpost.index') }}">
-                        <i class="material-icons text-warning">library_books</i>
+                        <i class="material-icons text-success">library_books</i>
                         <span>Записи</span>
                     </a>
                 </li>
-                <li class="{{ Request::is('/admin/subscriber*') ? 'active' : '' }}">
+                <li class="{{ Request::is('admin/subscriber*') ? 'active' : '' }}">
                     <a href="{{ route('adminsubscriber.index') }}">
                         <i class="material-icons text-warning">supervisor_account</i>
                         <span>Подписчики</span>
                     </a>
                 </li>
-                <li class="{{ Request::is('/admin/favorite') ? 'active' : '' }}">
+                <li class="{{ Request::is('admin/favorite*') ? 'active' : '' }}">
                     <a href="{{ route('adminfavorite.index') }}">
-                        <i class="material-icons text-warning">favorite</i>
+                        <i class="material-icons text-danger">favorite</i>
                         <span>Избранные</span>
                     </a>
                 </li>
+                <li class="{{ Request::is('admin/comment*') ? 'active' : '' }}">
+                    <a href="{{ route('admincomment.index') }}">
+                        <i class="material-icons text-success">comment</i>
+                        <span>Комментарии</span>
+                    </a>
+                </li>
                 <li class="header">Системные</li>
-                <li class="{{ Request::is('/admin/settings*') ? 'active' : '' }}">
+                <li class="{{ Request::is('admin/settings*') ? 'active' : '' }}">
                     <a href="{{ route('adminsettings') }}">
                         <i class="material-icons text-success">settings</i>
                         <span>Настройки</span>

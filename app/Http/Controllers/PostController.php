@@ -13,8 +13,9 @@ class PostController extends Controller
 
     public function index()
     {
+        $categories = Category::all();
         $posts = Post::latest()->paginate(6);
-        return view('posts', compact('posts'));
+        return view('posts', compact('posts', 'categories'));
     }
 
     public function details($slug)
