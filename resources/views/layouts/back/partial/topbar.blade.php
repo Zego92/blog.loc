@@ -7,14 +7,5 @@
                 <li class="header"><a class="navbar-brand ml-5" href="{{ route('home') }}">KRONA | Панель Управления</a></li>
             </ul>
         </div>
-        <div class="collapse navbar-collapse" id="navbar-collapse">
-            <ul class="nav navbar-nav navbar-right">
-                <li>
-                    <a href="javascript:void(0);" class="js-search" data-close="true">
-                        <i class="material-icons">search</i>
-                    </a>
-                </li>
-            </ul>
-        </div>
     </div>
 </nav>
