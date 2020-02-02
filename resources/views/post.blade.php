@@ -8,10 +8,10 @@
     <link href="{{ asset('/assets/front/css/post/style.css') }}" rel="stylesheet">
     <link href="{{ asset('/assets/front/css/post/responsive.css') }}" rel="stylesheet">
     <style>
-        .favorite_posts{
-            color: blue;
-        }
 
+        ion-icon {
+            font-size: 22px;
+        }
     </style>
 @endpush
 
@@ -35,12 +35,10 @@
                                 </div>
                             </div>
                             <div class="post-image"><img src="{{ asset('/uploads/img/post/' . $post->image) }}" alt="{{ $post->title }}"></div>
-                            <p class="para">
-                                {{ html_entity_decode($post->body) }}
-                            </p>
-                            <ul class="tags">
+                            <p class="para">{!! html_entity_decode($post->body) !!}</p>
+                            <ul style="margin: 30px 0;">
                                 @foreach($post->tags as $tag)
-                                <li><button type="button" class="btn btn-outline-info text-dark">{{ $tag->name }}</button></li>
+                                <li><a href="{{ route('tag.posts', $tag->slug) }}" class="btn btn-outline-info">{{ $tag->name }}</a></li>
                                 @endforeach
                             </ul>
                         </div>
@@ -60,15 +58,10 @@
                                         </form>
                                     @endguest
                                 </li>
-                                <li><a href="#"><i class="ion-chatbubble"></i>{{ $randompost->comments->count() }}</a></li>
-                                <li><a href="#"><i class="ion-eye"></i>{{ $post->view_count }}</a></li>
+                                <li><a><i class="ion-chatbubble"></i>{{ $post->comments->count() }}</a></li>
+                                <li><a><i class="ion-eye"></i>{{ $post->view_count }}</a></li>
                             </ul>
-                            <ul class="icons">
-                                <li>SHARE : </li>
-                                <li><a href="#"><i class="ion-social-facebook"></i></a></li>
-                                <li><a href="#"><i class="ion-social-twitter"></i></a></li>
-                                <li><a href="#"><i class="ion-social-pinterest"></i></a></li>
-                            </ul>
+
                         </div>
 
                     </div>
@@ -93,7 +86,7 @@
                             <h4 class="title"><b>Категория</b></h4>
                             <ul>
                                 @foreach($post->categories as $tag)
-                                <li><button type="button" class="btn btn-info">{{ $tag->name }}</button></li>
+                                <li><a href="{{ route('category.posts', $tag->slug) }}" class="btn btn-info">{{ $tag->name }}</a></li>
                                 @endforeach
                             </ul>
                         </div>
@@ -128,8 +121,8 @@
                                             </form>
                                         @endguest
                                     </li>
-                                    <li><a href="#"><i class="ion-chatbubble"></i>{{ $randompost->comments->count() }}</a></li>
-                                    <li><a href="#"><i class="ion-eye"></i>{{ $randompost->view_count }}</a></li>
+                                    <li><a><i class="ion-chatbubble"></i>{{ $randompost->comments->count() }}</a></li>
+                                    <li><a><i class="ion-eye"></i>{{ $randompost->view_count }}</a></li>
                                 </ul>
                             </div>
                         </div>
@@ -196,5 +189,5 @@
 @endsection
 
 @push('js')
-
+    <script src="https://unpkg.com/ionicons@4.5.10-0/dist/ionicons.js"></script>
 @endpush

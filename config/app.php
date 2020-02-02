@@ -161,7 +161,7 @@ return [
         Illuminate\Translation\TranslationServiceProvider::class,
         Illuminate\Validation\ValidationServiceProvider::class,
         Illuminate\View\ViewServiceProvider::class,
-        'Laravelrus\LocalizedCarbon\LocalizedCarbonServiceProvider',
+        Laravelrus\LocalizedCarbon\LocalizedCarbonServiceProvider::class,
 
         /*
          * Package Service Providers...

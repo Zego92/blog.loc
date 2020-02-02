@@ -13,11 +13,9 @@
 @endpush
 
 @section('content')
-    @foreach($posts as $post)
-    <div class="slider display-table center-text" style="background-image: url('{{ asset('/uploads/img/post/' . $post->image) }}');">
+    <div class="slider display-table center-text">
         <h1 class="title display-table-cell"><b>Все Записи</b></h1>
     </div>
-    @endforeach
 
     <section class="blog-area section">
         <div class="container">
@@ -44,8 +42,8 @@
                                                 </form>
                                             @endguest
                                         </li>
-                                        <li><a href="#"><i class="ion-chatbubble"></i>{{ $post->comments->count() }}</a></li>
-                                        <li><a href="#"><i class="ion-eye"></i>{{ $post->view_count }}</a></li>
+                                        <li><a><i class="ion-chatbubble"></i>{{ $post->comments->count() }}</a></li>
+                                        <li><a><i class="ion-eye"></i>{{ $post->view_count }}</a></li>
                                     </ul>
 
                                 </div>

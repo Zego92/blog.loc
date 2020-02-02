@@ -12,6 +12,7 @@
     <!-- Font -->
     <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500" rel="stylesheet">
     <!-- Stylesheets -->
+    <link rel="shortcut icon" href="{{ asset('/assets/front/images/logo2.png') }}" type="image/png">
 
     <link href="{{ asset('/assets/front/css/bootstrap.css') }}" rel="stylesheet">
 

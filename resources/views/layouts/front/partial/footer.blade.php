@@ -3,10 +3,10 @@
         <div class="row">
             <div class="col-lg-4 col-md-6">
                 <div class="footer-section">
-                    <a class="logo" href="#"><img src="{{ asset('/assets/front/images/logo.png') }}" alt="Logo Image"></a>
+                    <a class="logo" href="#"><img src="{{ asset('/assets/front/images/logo2.png') }}" alt="Logo Image"></a>
                     <p class="copyright">KRONA @ 2020. All rights reserved.</p>
                     <ul class="icons">
-                        <li><a href="#"><i class="ion-social-facebook-outline"></i></a></li>
+                        <li><a href="https://www.facebook.com/sharer/sharer.php?u=http://jorenvanhocht.be"><i class="ion-social-facebook-outline"></i></a></li>
                         <li><a href="#"><i class="ion-social-twitter-outline"></i></a></li>
                         <li><a href="#"><i class="ion-social-instagram-outline"></i></a></li>
                         <li><a href="#"><i class="ion-social-vimeo-outline"></i></a></li>
@@ -20,7 +20,7 @@
                     <ul>
                         @foreach($categories as $category)
 
-                        <li><a href="#">{{ $category->name }}</a></li>
+                        <li><a href="{{ route('category.posts', $category->slug) }}">{{ $category->name }}</a></li>
 
                         @endforeach
                     </ul>

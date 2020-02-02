@@ -11,8 +11,14 @@ class HomeController extends Controller
 
     public function index()
     {
-        $posts = Post::latest()->take(6)->get();
+        $posts = Post::latest()->approved()->published()->take(6)->get();
         $categories = Category::all();
         return view('welcome', compact('categories', 'posts'));
+    }
+
+    public function contact()
+    {
+        $categories = Category::all();
+        return view('contact', compact('categories'));
     }
 }
